@@ -18,8 +18,8 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "window.autoDetectColorScheme": true,
-  "workbench.preferredLightColorTheme": "Default Dark Modern",
-  "workbench.preferredDarkColorTheme": "Gruvbox Dark Hard",
+  "workbench.preferredLightColorTheme": "Tokyo Night Light",
+  "workbench.preferredDarkColorTheme": "Tokyo Night",
   "workbench.iconTheme": "vs-seti",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -36,5 +36,6 @@
   "files.associations": {
     "*.go": "go"
   },
-  "workbench.settings.openDefaultKeybindings": true
+  "workbench.settings.openDefaultKeybindings": true,
+  "git.autofetch": true
 }
