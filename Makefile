@@ -24,6 +24,6 @@ tr-keyboard:
 	[ -f ~/.config/karabiner/karabiner.json ] || ln -s "$(CURDIR)/karabiner.json" ~/.config/karabiner/karabiner.json
 
 brew:
-	brew bundle --file="$(CURDIR)/Brewfile"
+	brew bundle --file="$(CURDIR)/Brewfile" --cleanup
 
 .PHONY: all clean sync tr-keyboard brew
