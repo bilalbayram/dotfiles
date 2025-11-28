@@ -1,15 +1,21 @@
-set -gxp PATH $HOME/go/bin $HOME/.local/bin /usr/local/opt/python@3.11/libexec/bin /usr/local/sbin /opt/homebrew/bin /opt/homebrew/opt/node@20/bin /opt/homebrew/opt/postgresql@17/bin $HOME/.cargo/bin
-set -gx GOBIN $HOME/go/bin
-set -gx EDITOR nvim
-set -gx FZF_CTRL_T_COMMAND nvim
+# Path
+set -gxp PATH /opt/homebrew/bin /opt/homebrew/sbin $HOME/.local/bin $HOME/.cargo/bin
+
+# Editor
+set -gx EDITOR cursor
+
+# fzf settings
 set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git"
+set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
-# shell integration, if we don't set it, working directory features won't work
-set -gx GHOSTTY_SHELL_INTEGRATION_XDG_DIR /Applications/Ghostty.app/Contents/Resources/ghostty/shell-integration
+# Ghostty shell integration
+if test -d /Applications/Ghostty.app
+    set -gx GHOSTTY_SHELL_INTEGRATION_XDG_DIR /Applications/Ghostty.app/Contents/Resources/ghostty/shell-integration
+end
 
-# git prompt settings
+# Git prompt settings
 set -g __fish_git_prompt_show_informative_status 1
-set -g __fish_git_prompt_showdirtystate 'yes'
+set -g __fish_git_prompt_showdirtystate yes
 set -g __fish_git_prompt_char_stateseparator ' '
 set -g __fish_git_prompt_char_dirtystate "✖"
 set -g __fish_git_prompt_char_cleanstate "✔"
@@ -21,32 +27,17 @@ set -g __fish_git_prompt_color_cleanstate green --bold
 set -g __fish_git_prompt_color_invalidstate red
 set -g __fish_git_prompt_color_branch cyan --dim
 
-# don't show any greetings
-set fish_greeting ""
+# Disable greeting
+set -g fish_greeting
 
-# don't describe the command for darwin
-# https://github.com/fish-shell/fish-shell/issues/6270
+# Disable command description on macOS (performance)
 function __fish_describe_command; end
 
-# Senstive functions which are not pushed to Github
-# It contains work related stuff, some functions, aliases etc...
-source ~/.private.fish
+# Aliases
+alias ls="eza"
+alias ll="eza -l"
+alias la="eza -la"
+alias cat="bat"
 
-set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
-set -g fish_user_paths "/usr/local/opt/mysql-client/bin" $fish_user_paths
-
-# node, needed for developing my theme at arslan.io
-set -gx LDFLAGS "-L/opt/homebrew/opt/node@20/lib"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/node@20/include"
-
-
-set -gx ATUIN_NOBIND "true"
-status --is-interactive; atuin init fish | source
-
-bind \cr _atuin_search
-bind -M insert \cr _atuin_search
-
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/fatih/Code/google-cloud-sdk/path.fish.inc' ]; . '/Users/fatih/Code/google-cloud-sdk/path.fish.inc'; end
-
-# status --is-interactive; and rbenv init - fish | source
+# Private config (API keys, work stuff, etc.)
+test -f ~/.private.fish; and source ~/.private.fish
