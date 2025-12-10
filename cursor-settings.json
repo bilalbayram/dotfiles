@@ -37,5 +37,6 @@
     "*.go": "go"
   },
   "workbench.settings.openDefaultKeybindings": true,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "cursor.composer.usageSummaryDisplay": "always"
 }

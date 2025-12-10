@@ -34,5 +34,13 @@
   {
     "key": "cmd+9",
     "command": "workbench.action.openEditorAtIndex9"
-  }
+},
+{
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "\u001b\r"
+    },
+    "when": "terminalFocus"
+}
 ]
