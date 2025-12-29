@@ -3,10 +3,14 @@ all: sync
 sync:
 	mkdir -p ~/.config/fish
 	mkdir -p ~/.config/zed
+	mkdir -p ~/.config/opencode
 	mkdir -p ~/Library/"Application Support"/Cursor/User
 
 	[ -f ~/.config/fish/config.fish ] || ln -s "$(CURDIR)/config.fish" ~/.config/fish/config.fish
 	[ -d ~/.config/fish/functions/ ] || ln -s "$(CURDIR)/fish/functions" ~/.config/fish/functions
+
+	[ -f ~/.config/opencode/opencode.json ] || ln -s "$(CURDIR)/.config/opencode/opencode.json" ~/.config/opencode/opencode.json
+	[ -f ~/.config/opencode/oh-my-opencode.json ] || ln -s "$(CURDIR)/.config/opencode/oh-my-opencode.json" ~/.config/opencode/oh-my-opencode.json
 
 	[ -f ~/Library/"Application Support"/Cursor/User/settings.json ] || ln -s "$(CURDIR)/cursor-settings.json" ~/Library/"Application Support"/Cursor/User/settings.json
 	[ -f ~/Library/"Application Support"/Cursor/User/keybindings.json ] || ln -s "$(CURDIR)/cursor-keybindings.json" ~/Library/"Application Support"/Cursor/User/keybindings.json
@@ -24,6 +28,8 @@ clean:
 	rm -f ~/Library/"Application Support"/Cursor/User/keybindings.json
 	rm -f ~/.config/zed/settings.json
 	rm -f ~/.config/zed/keymap.json
+	rm -f ~/.config/opencode/opencode.json
+	rm -f ~/.config/opencode/oh-my-opencode.json
 
 tr-keyboard:
 	mkdir -p ~/.config/karabiner
