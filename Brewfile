@@ -1,4 +1,5 @@
 # Taps
+tap "anomalyco/tap/opencode"
 tap "homebrew/services"
 tap "oven-sh/bun"
 tap "stripe/stripe-cli"
@@ -21,7 +22,6 @@ brew "jpeg-xl"
 brew "jq"
 brew "mas"
 brew "neovim"
-brew "opencode"
 brew "oven-sh/bun/bun"
 brew "p7zip"
 brew "pipx"
