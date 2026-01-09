@@ -3,7 +3,8 @@
   "plugin": [
     "oh-my-opencode",
     "opencode-openai-codex-auth@4.2.0",
-    "opencode-antigravity-auth@1.2.8"
+    "opencode-antigravity-auth@1.2.8",
+    "file:///Users/Bayram/Developer/dotfiles/.config/opencode/opencode-anthropic-auth/index.mjs"
   ],
   "provider": {
     "openai": {
