@@ -1,6 +1,7 @@
 # Path
 set -gxp PATH /opt/homebrew/bin /opt/homebrew/sbin $HOME/.local/bin $HOME/.cargo/bin
 fish_add_path /opt/homebrew/opt/libpq/bin
+fish_add_path $HOME/.orbstack/bin
 
 # Editor
 set -gx EDITOR cursor
