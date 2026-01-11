@@ -16,6 +16,9 @@
     },
     "multimodal-looker": {
       "model": "google/antigravity-gemini-3-flash"
+    },
+    "reviewer": {
+      "model": "openai/gpt-5.2-codex-xhigh"
     }
   }
 }
