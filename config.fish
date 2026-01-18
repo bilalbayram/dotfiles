@@ -30,11 +30,14 @@ set -g __fish_git_prompt_color_cleanstate green --bold
 set -g __fish_git_prompt_color_invalidstate red
 set -g __fish_git_prompt_color_branch cyan --dim
 
+# try-cli
+eval (try init | string collect)
 # Disable greeting
 set -g fish_greeting
 
 # Disable command description on macOS (performance)
-function __fish_describe_command; end
+function __fish_describe_command
+end
 
 # Aliases
 alias ls="eza"
