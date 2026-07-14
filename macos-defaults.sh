@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 # ----------------------------------------
 # GENERAL TEXT / INPUT
@@ -83,8 +83,11 @@ defaults write com.apple.Safari WebKitPreferences.developerExtrasEnabled -bool t
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Looser Gatekeeper (allow apps from anywhere; ignore failure on newer macOS)
-sudo spctl --master-disable || true
+# Gatekeeper stays enabled by default. Temporarily disabling it is a deliberate
+# one-off action, not normal machine bootstrap behavior.
+if [ "${ALLOW_APPS_FROM_ANYWHERE:-0}" = "1" ]; then
+    sudo spctl --master-disable || true
+fi
 
 # ----------------------------------------
 # APPLY CHANGES
