@@ -1,11 +1,13 @@
 # Path
-set -gxp PATH /opt/homebrew/bin /opt/homebrew/sbin $HOME/.local/bin $HOME/.cargo/bin
-fish_add_path /opt/homebrew/opt/libpq/bin
-fish_add_path $HOME/.orbstack/bin
-fish_add_path $HOME/.bun/bin
+fish_add_path /opt/homebrew/bin /opt/homebrew/sbin
+fish_add_path $HOME/.local/bin $HOME/.cargo/bin
+
+for dir in /opt/homebrew/opt/libpq/bin $HOME/.orbstack/bin $HOME/.bun/bin $HOME/.grok/bin
+    test -d $dir; and fish_add_path $dir
+end
 
 # Editor
-set -gx EDITOR cursor
+set -gx EDITOR codium
 
 # fzf settings
 set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git"
@@ -31,7 +33,10 @@ set -g __fish_git_prompt_color_invalidstate red
 set -g __fish_git_prompt_color_branch cyan --dim
 
 # try-cli
-eval (try init | string collect)
+if type -q try
+    eval (try init | string collect)
+end
+
 # Disable greeting
 set -g fish_greeting
 
@@ -40,10 +45,15 @@ function __fish_describe_command
 end
 
 # Aliases
-alias ls="eza"
-alias ll="eza -l"
-alias la="eza -la"
-alias cat="bat"
+if type -q eza
+    alias ls="eza"
+    alias ll="eza -l"
+    alias la="eza -la"
+end
+
+if type -q bat
+    alias cat="bat"
+end
 
 # Private config (API keys, work stuff, etc.)
 test -f ~/.private.fish; and source ~/.private.fish

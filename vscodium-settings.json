@@ -1,0 +1,77 @@
+{
+  // --- Telemetry / privacy hardening (VSCodium already strips MS telemetry) ---
+  "telemetry.telemetryLevel": "off",
+  "redhat.telemetry.enabled": false,
+  "workbench.enableExperiments": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "npm.fetchOnlinePackageInfo": false,
+
+  // --- Editor ---
+  "editor.wordWrap": "on",
+  "editor.lineNumbers": "on",
+  "editor.renderWhitespace": "boundary",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.autoIndent": "full",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.fontFamily": "TX-02",
+  "editor.fontSize": 14,
+  "editor.minimap.enabled": false,
+
+  // --- Terminal ---
+  "terminal.integrated.defaultProfile.osx": "fish",
+
+  // --- Git ---
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+
+  // --- Search ---
+  "search.useGlobalIgnoreFiles": true,
+  "search.useParentIgnoreFiles": true,
+
+  // --- Explorer ---
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+
+  // --- Workbench / theme (auto-switch with macOS appearance) ---
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Tokyo Night",
+  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "workbench.iconTheme": "vs-seti",
+  "workbench.editor.showTabs": "single",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.settings.openDefaultKeybindings": true,
+
+  // --- Extensions (open-vsx) ---
+  "extensions.autoUpdate": true,
+  "extensions.autoCheckUpdates": true,
+
+  // --- Files ---
+  "files.associations": {
+    "*.go": "go"
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.git/**": true
+  },
+
+  // --- Project-specific (kept from prior VSCodium config) ---
+  "githubLocalActions.dockerDesktopPath": "/Applications/Docker.app",
+  "Odoo.configurations": {
+    "0": {
+      "id": 0,
+      "name": "New Configuration 0",
+      "odooPath": "",
+      "addons": [],
+      "validatedAddonsPaths": [],
+      "disablePythonLanguageServerPopup": false,
+      "finalPythonPath": "/opt/homebrew/bin/python3"
+    }
+  }
+}
